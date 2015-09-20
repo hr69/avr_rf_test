@@ -18,7 +18,7 @@
 
 int main(void)
 {
-	RF24 radio(9,10);
+	RF24 radio;
 
 	radio.begin();
 	
