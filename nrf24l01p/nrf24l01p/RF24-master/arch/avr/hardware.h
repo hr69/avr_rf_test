@@ -67,14 +67,18 @@ inline uint8_t spi_master_transmit_byte_ref(uint8_t *data){
 
 
 
-extern volatile int us;
+extern volatile int elapsed_us;
+extern volatile int elapsed_ms;
 
 inline int millis(){
 	
-	if(us > 0){
-		asm("nop");
-	}
-	return us;
+	return elapsed_ms;
+	//return 0;
+}
+
+inline int micros(){
+	
+	return elapsed_us;
 	//return 0;
 }
 
