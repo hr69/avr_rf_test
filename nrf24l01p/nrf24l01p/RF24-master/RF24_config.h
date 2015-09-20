@@ -27,6 +27,7 @@
 // #include <SPI.h>
 // #else
 
+#include "../common.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -36,7 +37,7 @@
 #define LOW 0
 #define HIGH 1
 #define OUTPUT 1
-#define F_CPU 8000000UL
+//#define F_CPU 8000000UL
 #include <util/delay.h>
 //#include "arch/avr/hardware.h"
 // extern HardwareSPI SPI;

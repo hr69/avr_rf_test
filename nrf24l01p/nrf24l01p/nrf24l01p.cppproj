@@ -130,6 +130,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="common.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -146,6 +149,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="RF24-master\RF24_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="serial_stdio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="uart.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

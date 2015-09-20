@@ -14,7 +14,6 @@
 #include "RF24_config.h"
 
 
-
 #define CE_DDR		DDRD
 #define CE_PORT		PORTD
 #define CE_BIT		7
