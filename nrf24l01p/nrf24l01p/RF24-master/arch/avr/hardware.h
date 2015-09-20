@@ -30,7 +30,7 @@
 /**
  * initialize the SPI module as master
  */
-void spi_master_initialize(){
+inline void spi_master_initialize(){
 	//set !SS,MOSI,SCK pin as output pins
 	SPI_DDR |= (1<<PINB2) | (1<<MOSI_BIT) | (1<<SCK_BIT);
 	//set MISO as input pin
@@ -44,7 +44,7 @@ void spi_master_initialize(){
  * @param data value of data byte to be sent
  * return data sent back from the salve
  */
-uint8_t spi_master_transmit_byte_val(uint8_t data){
+inline uint8_t spi_master_transmit_byte_val(uint8_t data){
 	//fill SPDR with data to write
 	SPDR = data;
 	//wait for transmission to complete
@@ -56,7 +56,7 @@ uint8_t spi_master_transmit_byte_val(uint8_t data){
  * @param data address of data byte to be sent
  * return data sent back from the salve
  */
-uint8_t spi_master_transmit_byte_ref(uint8_t *data){
+inline uint8_t spi_master_transmit_byte_ref(uint8_t *data){
 	//fill SPDR with data to write
 	SPDR = *data;
 	//wait for transmission to complete
@@ -69,7 +69,7 @@ uint8_t spi_master_transmit_byte_ref(uint8_t *data){
 
 extern volatile int us;
 
-int millis(){
+inline int millis(){
 	
 	if(us > 0){
 		asm("nop");
@@ -78,7 +78,7 @@ int millis(){
 	//return 0;
 }
 
-void initialize_timer_0A(){
+inline void initialize_timer_0A(){
 	TCCR0A |= (1<<WGM01) | (1<<WGM00); //fast pwm
 	TCCR0B |= (1<<FOC0A) ;//force output compare match on channel A
 	TCCR0B |= (1<<CS01); // div by 8 , therefore , if 8MHz --> 1Mhz ....if 16 MHz --> 2 MHz
@@ -88,23 +88,6 @@ void initialize_timer_0A(){
 	sei();
 	
 }
-
-volatile int us_10 = 0;
-volatile int us;
-
-
-
-ISR(TIMER0_COMPA_vect){
-	us_10++;
-	if(us_10>=100){  ////if 8 Mhz make it >100 ,  if 16 Mhz   make it  > 200
-		us_10 = 0;
-		us ++;
-		asm("nop");
-	}
-}
-
-
-
 
 
 #endif /* HARDWARE_H_ */

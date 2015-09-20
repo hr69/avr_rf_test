@@ -41,6 +41,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.cpp \
+../RF24-master/arch/avr/hardware.cpp \
 ../RF24-master/RF24.cpp
 
 
@@ -52,18 +53,22 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
+RF24-master/arch/avr/hardware.o \
 RF24-master/RF24.o
 
 OBJS_AS_ARGS +=  \
 main.o \
+RF24-master/arch/avr/hardware.o \
 RF24-master/RF24.o
 
 C_DEPS +=  \
 main.d \
+RF24-master/arch/avr/hardware.d \
 RF24-master/RF24.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
+RF24-master/arch/avr/hardware.d \
 RF24-master/RF24.d
 
 OUTPUT_FILE_PATH +=nrf24l01p.elf
@@ -85,7 +90,16 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
 ./%.o: .././%.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 4.8.1
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+RF24-master/arch/avr/%.o: ../RF24-master/arch/avr/%.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 4.8.1
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -47,7 +47,6 @@ int uart_getchar(FILE *stream)
 	return ch;
 }
 
-
 //FILE uart_str = FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
 
 /**
@@ -59,15 +58,14 @@ void stdio_serial_initialize()
 	stdout = stdin = uart_str;
 }
 
+void stdio_clear_screen()
+{
+	printf("%c[2J",27);
+}
 
-// void clear_screen()
-// {
-// 	printf("%c[2J",27);
-// }
-//
-// void cursor_home()
-// {
-// 	printf("%c[H",27);
-// }
+void stdio_cursor_home()
+{
+	printf("%c[H",27);
+}
 
 #endif /* SERIAL_STDIO_H_ */

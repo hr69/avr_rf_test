@@ -136,6 +136,9 @@
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="RF24-master\arch\avr\hardware.cpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="RF24-master\arch\avr\hardware.h">
       <SubType>compile</SubType>
     </Compile>

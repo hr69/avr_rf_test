@@ -22,10 +22,10 @@ int main(void)
 	usart_enable();
 	stdio_serial_initialize();
 
-	RF24 radio;
-
-
-	radio.begin();
+// 	RF24 radio;
+// 
+// 
+// 	radio.begin();
 	
     while(1)
     {
