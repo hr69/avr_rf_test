@@ -26,7 +26,7 @@
 #elif defined SOFTSPI
   #include <DigitalIO.h>
 #elif defined (__AVR__)
-//#include "arch/avr/hardware.h"
+#include "arch/avr/hardware.h"
 #endif
 
 /**

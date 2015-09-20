@@ -7,7 +7,6 @@
  */
 
 
-#include "arch/avr/hardware.h"
 
 #include "RF24.h"
 #include "nRF24L01.h"
