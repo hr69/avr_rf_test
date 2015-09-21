@@ -724,8 +724,8 @@ bool RF24::begin(void)
     _SPI.begin();
     csn(HIGH);
   #elif defined(__AVR__)
-	CE_PORT |= (1<<CE_BIT);
-	CSN_PORT|=(1<<CSN_BIT);
+	CE_DDR |= (1<<CE_BIT);
+	CSN_DDR|=(1<<CSN_BIT);
 	spi_master_initialize();
 	csn(HIGH);
   #else

@@ -981,7 +981,7 @@ private:
    *  may want to extend this class.
    */
   /**@{*/
-
+public:
   /**
    * Set chip select pin
    *
@@ -1001,7 +1001,7 @@ private:
    * for a much more detailed description of this pin.
    */
   void ce(bool level);
-
+private:
   /**
    * Read a chunk of data in from a register
    *
