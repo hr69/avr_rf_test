@@ -64,9 +64,6 @@ inline uint8_t spi_master_transmit_byte_ref(uint8_t *data){
 	return SPDR;
 }
 
-
-
-
 extern volatile int elapsed_us;
 extern volatile int elapsed_ms;
 

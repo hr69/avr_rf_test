@@ -68,11 +68,11 @@ void RF24::csn(bool mode)
 	  delayMicroseconds(5);
 #elif defined (__AVR__) 
 	  if (mode == HIGH) {
-		  PORTB |= (1<<PINB2);  	// SCK->CSN HIGH
+		  CSN_PORT |= (1<<CSN_BIT);  	// SCK->CSN HIGH
 		  delayMicroseconds(100); // allow csn to settle.
 	  }
 	  else {
-		  PORTB &= ~(1<<PINB2);	// SCK->CSN LOW
+		  CSN_PORT &= ~(1<<CSN_BIT);	// SCK->CSN LOW
 		  delayMicroseconds(11);  // allow csn to settle
 	  }
 #endif

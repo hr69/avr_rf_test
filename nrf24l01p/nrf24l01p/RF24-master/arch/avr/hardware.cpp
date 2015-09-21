@@ -17,8 +17,8 @@ ISR (TIMER0_OVF_vect){
 	us_4++;
 	if(us_4>=250){  ////if 8 Mhz make it >100 ,  if 16 Mhz   make it  > 200
 		us_4 = 0;
-		elapsed_us ++;  //increment the us
 		us_counter++;
+		elapsed_us ++;  //increment the us
 		if(us_counter>1000){
 			us_counter=0;
 			elapsed_ms++; //increment the ms
