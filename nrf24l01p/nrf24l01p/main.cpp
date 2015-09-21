@@ -29,6 +29,7 @@ bool role = 0;
 
 int main(void)
 {
+
 	//UART
 	usart_set_baud_rate(9600);
 	usart_setup(0,0,0,3,0);
@@ -37,6 +38,8 @@ int main(void)
 	
 	printf("RF24/examples/GettingStarted\n");
 	printf("*** PRESS 'T' to begin transmitting to the other node\n");
+
+	initialize_timer_0A();
 
     radio.begin();
 	//radio.setDataRate(RF24_250KBPS);

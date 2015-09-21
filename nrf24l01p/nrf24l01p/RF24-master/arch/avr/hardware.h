@@ -84,11 +84,11 @@ inline int micros(){
 
 inline void initialize_timer_0A(){
 	TCCR0A |= (1<<WGM01) | (1<<WGM00); //fast pwm
-	TCCR0B |= (1<<FOC0A) ;//force output compare match on channel A
-	TCCR0B |= (1<<CS01); // div by 8 , therefore , if 8MHz --> 1Mhz ....if 16 MHz --> 2 MHz
+	//TCCR0B |= (1<<FOC0A) ;//force output compare match on channel A
+	TCCR0B |= (1<<CS01) | (1<<CS00); // div by 64 , therefore , if 8MHz --> 1Mhz ....if 16 MHz --> 2 MHz
 	
-	OCR0A = 10; //if 8 Mhz return 10 us on compare,  if 16 Mhz return 5 us on compare
-	TIMSK0 |= (1<<OCIE0A);
+	//OCR0A = 4; //if 8 Mhz return 10 us on compare,  if 16 Mhz return 5 us on compare
+	TIMSK0 |= (1<<TOIE0);
 	sei();
 	
 }
