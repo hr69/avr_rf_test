@@ -145,7 +145,7 @@ int main(void)
 // 				radio.startListening();
 // 				
 // 			}
-// 		}		radio.ce(false);		_delay_ms(1000);		radio.ce(false);		_delay_ms(1000);		
+// 		}		radio.ce(false);		//_delay_ms(1000);		radio.ce(true);		//_delay_ms(1000);		
 		
     }
 }

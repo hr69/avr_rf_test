@@ -87,12 +87,11 @@ void RF24::csn(bool mode)
 }
 
 /****************************************************************************/
-int mode;
 void RF24::ce(bool level)
 {
 	#if defined(__AVR__)
-	if (ce_pin != csn_pin){
-		if (mode == HIGH) {
+	
+		if (level == HIGH) {
 			CE_PORT |= (1<<CE_BIT);  	// SCK->CSN HIGH
 			delayMicroseconds(100); // allow csn to settle.
 		}
@@ -100,7 +99,7 @@ void RF24::ce(bool level)
 			CE_PORT &= ~(1<<CE_BIT);	// SCK->CSN LOW
 			delayMicroseconds(11);  // allow csn to settle
 		}
-	}
+	
 	
 	#else
   //Allow for 3-pin use on ATTiny

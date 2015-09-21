@@ -34,8 +34,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define LOW 0
-#define HIGH 1
+#define LOW false
+#define HIGH true
 #define OUTPUT 1
 //#define F_CPU 8000000UL
 #include <util/delay.h>
